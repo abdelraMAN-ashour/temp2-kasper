@@ -18,6 +18,10 @@ html {
 ul {
   list-style: none;
 }
+a{
+  color: inherit;
+  text-decoration: none;
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -78,6 +82,8 @@ ul {
 }
 /* header section */
 header {
+  position: relative;
+  z-index: 1000;
   background: url(../imgs/headerphoto1.jpg) no-repeat center;
   background-size: cover;
   color: var(--main-words-color);
@@ -151,7 +157,7 @@ header nav li:hover::after {
 }
 header .small-screen-menu {
   transition: all 0.5s ease;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 50%;
@@ -165,13 +171,17 @@ header .small-screen-menu li {
   margin-bottom: 30px;
 }
 header .untouch-layer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   height: 100%;
+  z-index: 10;
   background-color: rgba(34, 14, 14, 0.438);
 }
 @media (max-width: 720px) {
+  header{
+    padding-top: 150px;
+  }
   header .container nav,
   header .container .fa-magnifying-glass {
     display: none;
@@ -180,6 +190,10 @@ header .untouch-layer {
     display: block;
   }
   header .container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  
     padding: 10px;
     background-color: rgba(128, 128, 128, 0.712);
   }
@@ -189,6 +203,9 @@ header .untouch-layer {
 }
 .disp-none {
   display: none !important;
+}
+.overflow{
+  overflow: hidden;
 }
 /* header-landing */
 header .landing {

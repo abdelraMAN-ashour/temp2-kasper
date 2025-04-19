@@ -4,6 +4,7 @@ const untouchLayer=document.querySelector(".untouch-layer");
 const headerRightArrow=document.querySelector(".right-arrow");
 const headerLeftArrow=document.querySelector(".left-arrow");
 const header=document.querySelector("header");
+const menuLi=document.querySelectorAll("header .small-screen-menu li a");
 const headerPageActive=document.querySelectorAll(".position-page div");
 const portfolioFilter=document.querySelectorAll(".portfolio .filter div");
 const portfolioPort=document.querySelectorAll(".portfolio .lower>div");
@@ -22,12 +23,16 @@ for(let i=0;i<scaleReadings.length;i++){
 const showMenu=function(){
     smallScreenMenu.classList.toggle("disp-none")
     untouchLayer.classList.toggle("disp-none");
+    document.body.classList.toggle("overflow");
 };
 const resetActivePage=function(){
     for(let i=0;i<3;i++){
         headerPageActive[i].classList.remove("position-page-active");
     }
 };
+for(let i=0;i<menuLi.length;i++){
+    menuLi[i].addEventListener("click",showMenu)
+}
 smallScreenIcon.addEventListener("click",showMenu);
 untouchLayer.addEventListener("click",showMenu)
 headerRightArrow.addEventListener("click",function(){
